@@ -1,0 +1,68 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 32px;
+    flex: 1;
+    max-height: 500px;
+}
+
+.container-full {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    top: 0;
+    left: 0;
+}
+
+.container {
+    padding: 32px;
+}
+
+.app-nav {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: start;
+    width: 100%;
+}
+
+button {
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    color: #fff;
+}
+
+button:active {
+    opacity: 0;
+    transition: all .6s ease-in-out;
+}
+
+form fieldset {
+    border: none;
+}
+
+form fieldset label {
+    display: block;
+    font-size: 0.8em;
+    margin-bottom: 5px;
+}
+
+form fieldset input {
+    display: block;
+    width: auto;
+    margin-bottom: 20px;
+    padding: 8px;
+}
+
+form fieldset input::placeholder {
+    color: #ccc;
+}
+
+form fieldset button[type="submit"] {
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+}
