@@ -2,6 +2,7 @@
   "name": "philsrc-webapp",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://www.alanbacelar.com/philsrc",
   "dependencies": {
     "axios": "^0.18.0",
     "react": "^16.4.1",
