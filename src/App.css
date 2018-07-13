@@ -66,3 +66,7 @@ form fieldset button[type="submit"] {
     padding: 8px 16px;
     border: 1px solid #ccc;
 }
+
+.fa-lg {
+    font-size: 2em;
+}

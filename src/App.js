@@ -49,17 +49,18 @@ class App extends Component {
             const ErrorMessageStyle ={
                 position: 'fixed',
                 width: '100%',
-                padding: '16px 0',
+                padding: '8px 0',
                 textAlign: 'center',
                 left: 0,
-                bottom: 0,
+                top: 0,
                 backgroundColor: 'red',
-                color: '#fff'
+                color: '#fff',
+                fontSize: '0.5em'
             }
 
             return (
                 <div style={ErrorMessageStyle}>
-                    {this.state.error}
+                    <small>{this.state.error}</small>
                 </div>
             )
         }
