@@ -24,7 +24,7 @@ class App extends Component {
     }
 
     componentDidMount() {
-        // this.syncTV();
+        this.syncTV();
     }
 
     async syncTV() {
