@@ -1,4 +1,5 @@
 import React from 'react';
+import withVibration from '../../helpers/withVibration';
 
 const LabelButton = ({ label, onClick, style }) => {
     const default_style = {
@@ -10,7 +11,7 @@ const LabelButton = ({ label, onClick, style }) => {
     const button_style = { ...default_style, ...style };
 
     return (
-        <button type="button" style={button_style} onClick={onClick}>
+        <button type="button" style={button_style} onClick={withVibration(onClick)}>
             {label}
         </button>
     )

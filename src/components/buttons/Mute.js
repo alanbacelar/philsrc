@@ -1,4 +1,5 @@
 import React from 'react';
+import withVibration from '../../helpers/withVibration';
 
 class MuteButton extends React.Component {
 
@@ -33,7 +34,7 @@ class MuteButton extends React.Component {
         const button_style = { ...default_style, ...style };
 
         return (
-            <button type="button" style={button_style} onClick={this.props.onClick.bind(this)}>
+            <button type="button" style={button_style} onClick={withVibration(this.props.onClick.bind(this))}>
                 <i className="fas fa-2x fa-volume-off"></i>
                 {this.getCloseIcon()}
             </button>

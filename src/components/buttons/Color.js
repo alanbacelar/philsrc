@@ -1,4 +1,5 @@
 import React from 'react';
+import withVibration from '../../helpers/withVibration';
 
 const ColorButton = ({ color, onClick }) => {
     const Style = {
@@ -9,7 +10,7 @@ const ColorButton = ({ color, onClick }) => {
         borderRadius: '10px'
     }
 
-    return (<button type="button" style={Style} onClick={onClick}></button>)
+    return (<button type="button" style={Style} onClick={withVibration(onClick)}></button>)
 }
 
 export default ColorButton;
