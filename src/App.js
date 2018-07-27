@@ -55,7 +55,7 @@ class App extends Component {
                 top: 0,
                 backgroundColor: 'red',
                 color: '#fff',
-                fontSize: '0.5em'
+                fontSize: '1em'
             }
 
             return (
@@ -74,11 +74,11 @@ class App extends Component {
         return (
             <div className="app">
                 <PowerOff onClick={sendKey.bind(this, 'Standby')} />
-                
+
                 <MenuControl />
                 <ColorsControl />
                 <MediaControl />
-                
+
                 <div style={{ display: 'flex', alignItem: 'center', justifyContent: 'center' }}>
                     <IconButton icon="undo-alt" label="back" onClick={sendKey.bind(this, 'Back')} />
                     <IconButton icon="th" label="keys" onClick={this.toggleKeysControl.bind(this)} />

@@ -22,7 +22,7 @@ class TvApi {
     }
 
     async getVolume() {
-        console.info('fetching volume..');
+        // console.info('fetching volume..');
         return this.doRequest('get', '/audio/volume');
     }
 

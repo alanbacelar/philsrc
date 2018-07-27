@@ -16,8 +16,8 @@ const IconButton = ({ icon, label, onClick, style }) => {
 
     return (
         <button type="button" style={button_style} onClick={withVibration(onClick)}>
-            <i className={`fas fa-lg fa-${icon}`}></i>
-            <small style={{marginTop: '5px', fontSize: '0.65em'}}>{label}</small>
+            <i className={`fas fa-3x fa-${icon}`}></i>
+            <small style={{marginTop: '5px', fontSize: '1em'}}>{label}</small>
         </button>
     )
 }
