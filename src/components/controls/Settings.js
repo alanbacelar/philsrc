@@ -1,5 +1,6 @@
 import React from 'react';
 import NavHeader from '../NavHeader';
+import AppPackage from '../../../package.json';
 // import VMasker from 'vanilla-masker';
 
 const Style = {
@@ -45,6 +46,9 @@ const SettingsControl = ({ open, onClose }) => {
                             <button type="submit">Save</button>
                         </fieldset>
                     </form>
+
+                    <h4>About the app</h4>
+                    <div style={{ fontSize: '0.8em' }}>Version: {AppPackage.version}</div>
                 </div>
             </div>
         )

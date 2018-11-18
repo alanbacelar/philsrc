@@ -11,6 +11,7 @@ import KeysControl from './components/controls/Keys';
 import SettingsControl from './components/controls/Settings';
 
 import TvApi from './TvApi';
+import FindTv from './helpers/findtv';
 
 class App extends Component {
     state = { openKeysControl: false, openSettingsControl: false, error: null };
@@ -25,9 +26,20 @@ class App extends Component {
 
     componentDidMount() {
         this.syncTV();
+        this.findTv();
+    }
+
+    findTv() {
+        try {
+            FindTv.findAndSetTv();
+        } catch (error) {
+
+        }
     }
 
     async syncTV() {
+        console.info('syncing tv...');
+
         try {
             const response = await TvApi.getVolume();
 
@@ -37,11 +49,14 @@ class App extends Component {
                 this.setState({ error: "Can't connect to TV" });
             }
         } catch (error) {
+            this.findTv();
             this.setState({ error: "Can't connect to TV" });
             console.error(error);
         }
 
-        setTimeout(this.syncTV.bind(this), 3000);
+        setTimeout(() => {
+            this.syncTV();
+        }, 3000);
     }
 
     getErrorMessage() {
