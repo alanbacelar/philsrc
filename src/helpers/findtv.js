@@ -26,8 +26,8 @@ function getLocalIPs() {
     });
 }
 
-const findAndSetTv = () => {
-    getLocalIPs().then(function (result) {
+const findAndSetTv = async () => {
+    return getLocalIPs().then(function (result) {
         var ip = result[0];
         var parts = ip.split('.');
         parts.pop();

@@ -14,7 +14,7 @@ import TvApi from './TvApi';
 import FindTv from './helpers/findtv';
 
 class App extends Component {
-    state = { openKeysControl: false, openSettingsControl: false, error: null };
+    state = { openKeysControl: false, openSettingsControl: false, error: null, finding: false };
 
     toggleKeysControl() {
         this.setState({ openKeysControl: !this.state.openKeysControl });
@@ -29,11 +29,14 @@ class App extends Component {
         this.findTv();
     }
 
-    findTv() {
+    async findTv() {
         try {
-            FindTv.findAndSetTv();
+            this.setState({ finding: true });
+            await FindTv.findAndSetTv();
         } catch (error) {
 
+        } finally {
+            this.setState({ finding: false });
         }
     }
 
@@ -52,11 +55,11 @@ class App extends Component {
             this.findTv();
             this.setState({ error: "Can't connect to TV" });
             console.error(error);
+        } finally {
+            setTimeout(() => {
+                this.syncTV();
+            }, 3000);
         }
-
-        setTimeout(() => {
-            this.syncTV();
-        }, 3000);
     }
 
     getErrorMessage() {
@@ -98,6 +101,7 @@ class App extends Component {
                     <IconButton icon="undo-alt" label="back" onClick={sendKey.bind(this, 'Back')} />
                     <IconButton icon="th" label="keys" onClick={this.toggleKeysControl.bind(this)} />
                     <IconButton icon="cog" label="Settings" onClick={this.toggleSettingsControl.bind(this)} />
+                    <IconButton icon="sync" label="Sync" loading={this.state.finding} loadingLabel="Waiting..." onClick={this.findTv.bind(this)} />
                 </div>
 
                 <KeysControl open={this.state.openKeysControl} onClose={this.toggleKeysControl.bind(this)} />
